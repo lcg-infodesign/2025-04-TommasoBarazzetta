@@ -1,4 +1,11 @@
 html, body {
+  
+  
+ 
+  overflow-y: scroll;  /* abilita lo scroll verticale */
+  
+  
+
   margin: 0;
   padding: 0;
 }
