@@ -2,9 +2,13 @@ let table;
 let currentPage;
 let selectedRegion = null;
 let selectedType = null;
-
+let worldMap;
 function preload() {
+  
+  
   table = loadTable('data/volcanoes.csv', 'csv', 'header');
+  worldMap = loadImage('data/world-map.png');
+
 }
 
 function setup() {
@@ -18,13 +22,18 @@ function setup() {
 
 function draw() {
   background(240);
-  currentPage.display();
+  if (currentPage) currentPage.display();
 }
 
 function mousePressed() {
-  let nextPage = currentPage.handleClick(mouseX, mouseY);
-  if (nextPage) currentPage = nextPage;
+  if (currentPage && currentPage.handleClick) {
+    let nextPage = currentPage.handleClick(mouseX, mouseY);
+    if (nextPage) {
+      currentPage = nextPage;
+    }
+  }
 }
+
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

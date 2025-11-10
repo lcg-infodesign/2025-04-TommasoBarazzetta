@@ -29,7 +29,7 @@ class WorldPage {
     let w = (width - this.margin * 2) / this.cols;
     let h = 150;
     let x = this.margin;
-    let y = 120;
+    let y = 160;
 
     for (let i = 0; i < keys.length; i++) {
       let name = keys[i];
@@ -81,14 +81,15 @@ class WorldPage {
       text(`${box.count} vulcani`, box.x + (box.w - 10) / 2, box.y + (box.h - 10) / 2 + 15);
     }
   }
-
   handleClick(mx, my) {
     for (let box of this.regionBoxes) {
-      if (mx > box.x && mx < box.x + box.w - 10 &&
-          my > box.y && my < box.y + box.h - 10) {
-        return new RegionPage(this.table, box.name);
-      }
+    const x2 = box.x + box.w - 10;
+    const y2 = box.y + box.h - 10;
+    if (mx >= box.x && mx <= box.x + box.w - 10 &&
+    my >= box.y && my <= box.y + box.h - 10) {
+      return new RegionPage(this.table, box.name, worldMap);
     }
-    return null;
   }
+  return null;
+}
 }
