@@ -87,7 +87,7 @@ class RegionPage {
   // 🔹 Adatta l’altezza del canvas solo se necessario (senza scorrimento inutile)
   let rows = ceil(keys.length / this.cols);
   let totalHeight = this.mapY + this.mapH + 100 + rows * (h + this.boxPadding);
-  resizeCanvas(width, min(totalHeight + 80, windowHeight * 1.2)); 
+  resizeCanvas(width, totalHeight + 100); 
 }
 
 
@@ -96,7 +96,7 @@ class RegionPage {
     textAlign(CENTER, CENTER);
     fill(30);
     textSize(26);
-    text(`Vulcani di ${this.region}`, width / 2, 50);
+    text(`Mappa vulcani ${this.region}`, width / 2, 50);
     this.backButton.display();
 
     // Mappa
@@ -148,7 +148,7 @@ if (hoveredVolcano) {
   fill(255);
   textAlign(LEFT, TOP);
   textSize(12);
-  text(`${hoveredVolcano.name}\nAltitudine: ${hoveredVolcano.elev} m`,
+  text(`${hoveredVolcano.name}\nAltitudine: ${hoveredVolcano.elev} mslm`,
        mouseX + 16, mouseY - 36);
 }
 
@@ -160,7 +160,7 @@ if (hoveredVolcano) {
 
       fill(255);
       textAlign(CENTER, CENTER);
-      textSize(13);
+      textSize(16);
       text(box.name, box.x + (box.w - 10) / 2, box.y + (box.h - 10) / 2 - 8);
       textSize(11);
       text(`${box.count} vulcani`, box.x + (box.w - 10) / 2, box.y + (box.h - 10) / 2 + 12);

@@ -35,13 +35,13 @@ class TypePage {
 
     for (let v of this.volcanoes) {
       fill(50, 80, 130);
-      textSize(16);
+      textSize(18);
       text(v.name, 60, y);
       y += lineH;
       fill(60);
-      textSize(13);
+      textSize(15);
       text(
-        `• Luogo: ${v.location} | Altitudine: ${v.elev} m | Stato: ${v.status} | Ultima eruzione: ${v.eruption}`,
+        `• Luogo: ${v.location} | Altitudine: ${v.elev} mslm | Stato: ${v.status} | Ultima eruzione: ${v.eruption}`,
         80,
         y
       );
@@ -56,7 +56,7 @@ class TypePage {
 
   handleClick(mx, my) {
     if (this.backButton.isClicked(mx, my)) {
-      return new RegionPage(this.table, this.region);
+      return new RegionPage(this.table, this.region, worldMap);
     }
     return null;
   }

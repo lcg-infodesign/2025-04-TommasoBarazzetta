@@ -59,7 +59,7 @@ class WorldPage {
   display() {
     background(245);
     fill(30);
-    textSize(28);
+    textSize(45);
     textAlign(CENTER, CENTER);
     text("Distribuzione dei vulcani per Paese", width / 2, 50);
 
@@ -74,7 +74,7 @@ class WorldPage {
 
       // Testo centrato
       fill(255);
-      textSize(16);
+      textSize(20);
       textAlign(CENTER, CENTER);
       text(box.name, box.x + (box.w - 10) / 2, box.y + (box.h - 10) / 2 - 15);
       textSize(13);
