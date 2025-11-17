@@ -7,6 +7,7 @@ class WorldPage {
     this.margin = 40; // margine generale
     this.boxPadding = 20;
     this.createBoxes();
+    this.legend = new LegendPanel();
   }
 
   getRegionCounts() {
@@ -80,8 +81,10 @@ class WorldPage {
       textSize(13);
       text(`${box.count} vulcani`, box.x + (box.w - 10) / 2, box.y + (box.h - 10) / 2 + 15);
     }
+    this.legend.display();
   }
   handleClick(mx, my) {
+    if (this.legend.handleClick(mx, my)) return null;
     for (let box of this.regionBoxes) {
     const x2 = box.x + box.w - 10;
     const y2 = box.y + box.h - 10;
